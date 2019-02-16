@@ -20,12 +20,12 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  digitalWrite(rosso,HIGH);
-  digitalWrite(verde,LOW);
-  delay(trosso);
-  digitalWrite(rosso,LOW);
-  digitalWrite(giallo,HIGH);
-  delay(tgiallo);
+ digitalWrite(rosso,HIGH);
+ digitalWrite(verde,LOW);
+ delay(trosso);
+ digitalWrite(rosso,LOW);
+ digitalWrite(giallo,HIGH);
+ delay(tgiallo);
  digitalWrite(rosso,LOW);
  digitalWrite(giallo,LOW);
  digitalWrite(bianco,HIGH);
@@ -35,37 +35,33 @@ void loop() {
  digitalWrite(bianco,LOW);
  digitalWrite(verde,HIGH);
  delay(tverde);
-
- 
-  
-
 }
 
 void RichiestaRosso()
 {
   Serial.begin(9600);
-  Serial.println("QUANTO VUOI CHE DURI IL ROSSO?");
+  Serial.println("QUANTO VUOI CHE DURI IL ROSSO?(dare il tempo in secondi)");
   while(Serial.available()==0){};
-  trosso = Serial.readString().toInt();
+  trosso = (Serial.readString().toInt())*1000;
 }
 void RichiestaGiallo()
 {
   Serial.begin(9600);
-  Serial.println("QUANTO VUOI CHE DURI IL GIALLO?");
+  Serial.println("QUANTO VUOI CHE DURI IL GIALLO?(dare il tempo in secondi)");
   while(Serial.available()==0){};
-  tgiallo = Serial.readString().toInt();
+  tgiallo = (Serial.readString().toInt())*1000;
 }
 void RichiestaBianco()
 {
   Serial.begin(9600);
-  Serial.println("QUANTO VUOI CHE DURI IL BIANCO?");
+  Serial.println("QUANTO VUOI CHE DURI IL BIANCO?(dare il tempo in secondi)");
   while(Serial.available()==0){};
-  tbianco = Serial.readString().toInt();
+  tbianco = (Serial.readString().toInt())*1000;
 }
 void RichiestaVerde()
 {
   Serial.begin(9600);
-  Serial.println("QUANTO VUOI CHE DURI IL VERDE?");
+  Serial.println("QUANTO VUOI CHE DURI IL VERDE?(dare il tempo in secondi)");
   while(Serial.available()==0){};
-  tverde = Serial.readString().toInt();
+  tverde = (Serial.readString().toInt())*1000;
 }
