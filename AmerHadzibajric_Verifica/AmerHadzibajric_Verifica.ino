@@ -13,12 +13,15 @@ void setup() {
   pinMode(bianco, OUTPUT);
   pinMode(verde, OUTPUT);
   RichiestaRosso();
-
+  RichiestaGiallo();
+  RichiestaBianco();
+  RichiestaVerde();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   digitalWrite(rosso,HIGH);
+  digitalWrite(verde,LOW);
   delay(trosso);
   digitalWrite(rosso,LOW);
   digitalWrite(giallo,HIGH);
@@ -48,21 +51,21 @@ void RichiestaRosso()
 void RichiestaGiallo()
 {
   Serial.begin(9600);
-  Serial.println("QUANTO VUOI CHE DURI IL ROSSO?");
+  Serial.println("QUANTO VUOI CHE DURI IL GIALLO?");
   while(Serial.available()==0){};
   tgiallo = Serial.readString().toInt();
 }
 void RichiestaBianco()
 {
   Serial.begin(9600);
-  Serial.println("QUANTO VUOI CHE DURI IL ROSSO?");
+  Serial.println("QUANTO VUOI CHE DURI IL BIANCO?");
   while(Serial.available()==0){};
   tbianco = Serial.readString().toInt();
 }
 void RichiestaVerde()
 {
   Serial.begin(9600);
-  Serial.println("QUANTO VUOI CHE DURI IL ROSSO?");
+  Serial.println("QUANTO VUOI CHE DURI IL VERDE?");
   while(Serial.available()==0){};
   tverde = Serial.readString().toInt();
 }
